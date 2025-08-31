@@ -22,9 +22,11 @@ def _time_execution(img_path: str = "path/to/file"):
 
 
 def main():
+    from server.core.config import Settings
     import uvicorn
 
-    uvicorn.run("server:app", host="0.0.0.0", port=9999, reload=True)
+    settings = Settings()
+    uvicorn.run("server:app", host=settings.host, port=settings.port, reload=True)
 
 
 if __name__ == "__main__":

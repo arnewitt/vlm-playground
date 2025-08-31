@@ -1,0 +1,20 @@
+meta {
+  name: Caption
+  type: http
+  seq: 2
+}
+
+post {
+  url: 0.0.0.0:9999/caption
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  length: short
+  file: @file()
+}
+
+settings {
+  encodeUrl: true
+}

@@ -5,6 +5,7 @@ from PIL import Image
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.responses import StreamingResponse
 from models import Moondream_FastVLM
+from server.core.config import Settings
 
 # Logging config
 logging.basicConfig(
@@ -14,8 +15,9 @@ logging.basicConfig(
 logger = logging.getLogger("vlm-api")
 
 # Initialize app
-app = FastAPI(title="VLM API")
-client = Moondream_FastVLM()
+settings = Settings()
+app = FastAPI(title=settings.app_title)
+client = Moondream_FastVLM(model_id=settings.model_id, revision=settings.revision)
 
 
 class CaptionLength(str, Enum):
