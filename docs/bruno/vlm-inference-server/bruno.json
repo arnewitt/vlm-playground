@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "vlm-inference-server",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

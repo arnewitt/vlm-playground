@@ -1,0 +1,19 @@
+meta {
+  name: Get health
+  type: http
+  seq: 1
+}
+
+get {
+  url: 0.0.0.0:9999/health
+  body: multipartForm
+  auth: inherit
+}
+
+body:file {
+  file: @file(example.png) @contentType(image/png)
+}
+
+settings {
+  encodeUrl: true
+}
